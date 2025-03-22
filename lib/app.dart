@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:my_travel_ticket_online/views/trip_dashboard_page.dart';
 import 'package:my_travel_ticket_online/views/trip_detail_page.dart';
 import 'package:my_travel_ticket_online/views/trip_list_page.dart';
 
@@ -13,7 +14,8 @@ class TripApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.blue),
       routerConfig: GoRouter(
         routes: [
-          GoRoute(path: '/', builder: (context, state) => TripListPage()),
+          GoRoute(path: '/', builder: (context, state) => TripDashboardPage()),
+          GoRoute(path: '/trip', builder: (context, state) => TripListPage()),
           GoRoute(
             path: '/trip/:id',
             builder: (context, state) {
