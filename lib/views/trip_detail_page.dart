@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import '../models/trip.dart';
 import '../data/trip_repository.dart';
 
-import 'package:flutter/material.dart';
-import '../models/trip.dart';
-import '../data/trip_repository.dart';
-
 class TripDetailPage extends StatelessWidget {
   final String tripId;
 
@@ -16,7 +12,15 @@ class TripDetailPage extends StatelessWidget {
     final trip = TripRepository.getTrips().firstWhere((t) => t.id == tripId);
 
     return Scaffold(
-      appBar: AppBar(title: Text(trip.title)),
+      appBar: AppBar(
+        title: Text(trip.title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // Ensures it navigates back instead of closing
+          },
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
