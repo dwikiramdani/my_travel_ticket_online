@@ -10,7 +10,7 @@ class TripCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.go('/trip/${trip.id}'),
+      onTap: () => context.push('/trip/${trip.id}'),
       child: Card(
         margin: EdgeInsets.all(10),
         child: Column(

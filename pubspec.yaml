@@ -40,6 +40,7 @@ dependencies:
   go_router: ^10.0.0        # Navigation
   cached_network_image: ^3.2.0  # Image caching
   shimmer: ^3.0.0           # Loading effect
+  device_preview: ^1.2.0
 
 dev_dependencies:
   flutter_test:
