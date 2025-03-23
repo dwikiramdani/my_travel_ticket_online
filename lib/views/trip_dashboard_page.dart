@@ -6,6 +6,8 @@ import 'dart:developer' as developer;
 import '../widgets/trip_dashboard_widget.dart';
 
 class TripDashboardPage extends HookWidget {
+  const TripDashboardPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final searchController = useTextEditingController();

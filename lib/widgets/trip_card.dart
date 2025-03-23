@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import '../models/trip.dart';
 
-class TripCard extends StatelessWidget {
+class TripCard extends HookWidget {
   final Trip trip;
 
-  const TripCard({required this.trip, Key? key}) : super(key: key);
+  const TripCard({required this.trip, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,9 @@ class TripCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
               child: Image.network(
-                trip.imageUrls.isNotEmpty ? trip.imageUrls.first : 'https://via.placeholder.com/600x400?text=Trip+Image',
+                trip.imageUrls.isNotEmpty
+                    ? trip.imageUrls.first
+                    : 'https://via.placeholder.com/600x400?text=Trip+Image',
                 height: 150,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -35,12 +38,19 @@ class TripCard extends StatelessWidget {
                     trip.title,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  Text(trip.summary, maxLines: 2, overflow: TextOverflow.ellipsis),
+                  Text(
+                    trip.summary,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                   SizedBox(height: 8),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('\$${trip.price}', style: TextStyle(fontSize: 16, color: Colors.green)),
+                      Text(
+                        'Rp. ${trip.price}',
+                        style: TextStyle(fontSize: 16, color: Colors.green),
+                      ),
                       Row(
                         children: [
                           Icon(Icons.star, color: Colors.amber, size: 18),
